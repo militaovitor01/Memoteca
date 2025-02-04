@@ -1,19 +1,44 @@
 {
   "pensamentos": [
     {
-      "id": "2a56",
-      "conteudo": "Vc faz TI? Conserta meu celular!",
-      "autoria": "Grupo da família"
+      "id": "g7h8",
+      "conteudo": "O sucesso é ir de fracasso em fracasso sem perder o entusiasmo.",
+      "autoria": "Winston Churchill"
     },
     {
-      "id": "5b8a",
-      "conteudo": "Na minha máquina funciona!",
-      "autoria": "Dev"
+      "id": "i9j0",
+      "conteudo": "Tudo o que um sonho precisa para ser realizado é alguém que acredite que ele possa ser realizado.",
+      "autoria": "Roberto Shinyashiki"
     },
     {
-      "id": "68uy",
-      "conteudo": "Esse é de laranja que parece de limão, mas tem gosto de tamarindo!",
-      "autoria": "Chaves"
+      "id": "k1l2",
+      "conteudo": "O único modo de fazer um excelente trabalho é amar o que você faz.",
+      "autoria": "Steve Jobs"
+    },
+    {
+      "id": "m3n4",
+      "conteudo": "Seja a mudança que você deseja ver no mundo.",
+      "autoria": "Mahatma Gandhi"
+    },
+    {
+      "id": "o5p6",
+      "conteudo": "Grandes realizações não são feitas por impulso, mas por uma soma de pequenas conquistas.",
+      "autoria": "Vincent Van Gogh"
+    },
+    {
+      "id": "a1b2",
+      "conteudo": "A persistência é o caminho do êxito.",
+      "autoria": "Charles Chaplin"
+    },
+    {
+      "id": "c3d4",
+      "conteudo": "A vida é 10% o que acontece comigo e 90% como eu reajo a isso.",
+      "autoria": "Charles Swindoll"
+    },
+    {
+      "id": "e5f6",
+      "conteudo": "Acredite que você pode, assim você já está no meio do caminho.",
+      "autoria": "Theodore Roosevelt"
     }
   ]
 }

@@ -168,10 +168,10 @@ h2, h3 {
   display: flex;
   justify-content: center;
   gap: 10px;
-  padding-top: 16px;
+  padding-top: 16px; 
 } 
 
-#botao-salvar, #botao-cancelar {
+#botao-salvar, #botao-cancelar, #botao-excluir-todos {
   padding: 8px 32px;
   border-radius: 32px;
   color: var(--Baby-blue, #DBE4EF);
@@ -180,6 +180,7 @@ h2, h3 {
   font-style: normal;
   font-weight: 600;
   line-height: normal;
+  cursor: pointer;
 }
 
 #botao-salvar {
@@ -189,6 +190,10 @@ h2, h3 {
 
 #botao-cancelar {
   color: var(--Azul-Dark, #041832);
+}
+
+#botao-excluir-todos {
+  background-color: brown;
 }
 
 #lista-pensamentos-container {
@@ -206,8 +211,8 @@ h2, h3 {
   padding: 0;
   display: flex;
   flex-wrap: wrap;
-  justify-content: space-between;
-  row-gap: 32px;
+  justify-content: center;
+  gap: 32px;
 }
 
 .li-pensamento {
@@ -281,4 +286,23 @@ span {
   height: 1px;
   background: #041832;
   margin: 96px 0 48px 0;
+}
+
+.lista-vazia {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 1em;
+}
+
+.lista-vazia p {
+  color: var(--Azul-Dark);
+  font-family: "Poppins", sans-serif;
+  font-weight: 400;
+  font-size: 22px;
+}
+
+.lista-vazia img {
+  height: 150px;
+  width: 150px;
 }

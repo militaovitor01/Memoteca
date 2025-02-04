@@ -5,9 +5,20 @@ import "./api.js"
 
 const formularioPensamento = document.getElementById('pensamento-form')
 const botaoCancelar = document.getElementById("botao-cancelar")
+const botaoExcluirTodos= document.getElementById("botao-excluir-todos")
+
 botaoCancelar.addEventListener('click', () => {
     formularioPensamento.reset()
 })
+
+botaoExcluirTodos.onclick = async () => {
+    try {
+        await api.excluirTodos()
+    } catch (error) {
+        alert("Erro ao chamar a função de exclusão de pensamentos")
+        throw error
+    }
+}
 
 document.addEventListener("DOMContentLoaded", () => {
     ui.renderizarPensamentos()    
@@ -26,7 +37,7 @@ async function manipularSubmissaoFormulario(event) {
         }else {
             await api.cadastrarPensamentos({conteudo, autoria})
         }
-               
+
         ui.renderizarPensamentos()
     } catch (error) {
         alert("Erro ao cadastrar pensamentos!")

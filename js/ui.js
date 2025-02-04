@@ -12,6 +12,15 @@ const ui = {
     async renderizarPensamentos() {
         try {
             const pensamentos = await api.buscarPensamentos()
+            if(pensamentos.length  === 0) {          
+                listaPensamentos.innerHTML = `
+                    <div class="lista-vazia">
+                    <p>Nada por aqui ainda, que tal compartilhar alguma ideia?</p>
+                    <img src="assets/imagens/lista-vazia.png" alt="Lista Vazia">
+                    </div>
+                `
+                return
+            }
             pensamentos.forEach(ui.cadastrarPensamentosNaLista)
         } catch (error) {
             alert('Erro ao renderizar pensamentos')
