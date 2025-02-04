@@ -3,10 +3,14 @@ import api from "./api.js"
 import "./ui.js"
 import "./api.js"
 
-document.addEventListener("DOMContentLoaded", () => {
-    ui.renderizarPensamentos()
+const formularioPensamento = document.getElementById('pensamento-form')
+const botaoCancelar = document.getElementById("botao-cancelar")
+botaoCancelar.addEventListener('click', () => {
+    formularioPensamento.reset()
+})
 
-    const formularioPensamento = document.getElementById('pensamento-form')
+document.addEventListener("DOMContentLoaded", () => {
+    ui.renderizarPensamentos()    
     formularioPensamento.addEventListener("submit", manipularSubmissaoFormulario)
 })
 
@@ -17,7 +21,12 @@ async function manipularSubmissaoFormulario(event) {
     const autoria = document.getElementById("pensamento-autoria").value
 
     try {
-        await api.cadastrarPensamentos({conteudo, autoria})
+        if(id) {
+            await api.editarPensamentos({id, conteudo, autoria})
+        }else {
+            await api.cadastrarPensamentos({conteudo, autoria})
+        }
+               
         ui.renderizarPensamentos()
     } catch (error) {
         alert("Erro ao cadastrar pensamentos!")
