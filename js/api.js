@@ -20,6 +20,23 @@ const api = {
         }
     },
 
+    async buscarPensamentosPorTermo(termo) {
+        try {
+            const pensamentos = await this.buscarPensamentos()
+            const termoEmMinusculas = termo.toLowerCase() // O pensamento digitado pela pessoa sempre estará em minúsculas
+
+            const pensamentosFiltrados = pensamentos.filter(pensamento =>{
+                return (pensamento.conteudo.toLowerCase().includes(termoEmMinusculas)) ||
+                (pensamento.autoria.toLowerCase().includes(termoEmMinusculas))
+            })
+
+            return pensamentosFiltrados
+        } catch (error) {
+            alert("Erro ao buscar pensamentos por termo!")
+            throw error
+        }   
+    },
+
     async cadastrarPensamentos(pensamento){
         try {
             const response = await axios.post(`${URL_BASE}/pensamentos`)
@@ -57,7 +74,7 @@ const api = {
             alert ('Erro ao excluir o pensamento')
             throw error
         }
-    } 
+    }   
 }
 
 // Permite que o objeto seja acessado por outros arquivos

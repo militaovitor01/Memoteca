@@ -5,7 +5,14 @@ import "./api.js"
 
 const formularioPensamento = document.getElementById('pensamento-form')
 const botaoCancelar = document.getElementById("botao-cancelar")
-const botaoExcluirTodos= document.getElementById("botao-excluir-todos")
+const botaoExcluirTodos = document.getElementById("botao-excluir-todos")
+const inputBusca = document.getElementById("campo-busca")
+
+document.addEventListener("DOMContentLoaded", () => {
+    ui.renderizarPensamentos()    
+    formularioPensamento.addEventListener("submit", manipularSubmissaoFormulario)
+    inputBusca.addEventListener("input", manipularBusca)
+})
 
 botaoCancelar.addEventListener('click', () => {
     formularioPensamento.reset()
@@ -19,11 +26,6 @@ botaoExcluirTodos.onclick = async () => {
         throw error
     }
 }
-
-document.addEventListener("DOMContentLoaded", () => {
-    ui.renderizarPensamentos()    
-    formularioPensamento.addEventListener("submit", manipularSubmissaoFormulario)
-})
 
 async function manipularSubmissaoFormulario(event) {
     event.preventDefault()
@@ -41,5 +43,15 @@ async function manipularSubmissaoFormulario(event) {
         ui.renderizarPensamentos()
     } catch (error) {
         alert("Erro ao cadastrar pensamentos!")
+    }
+}
+
+async function manipularBusca(){
+    const termoBusca = document.getElementById("campo-busca").value
+    try {
+        const pensamentosFiltrados = await api.buscarPensamentosPorTermo(termoBusca)
+        ui.renderizarPensamentos(pensamentosFiltrados)
+    } catch (error) {
+        alert("Erro ao realizar busca")
     }
 }
