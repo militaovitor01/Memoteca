@@ -74,7 +74,17 @@ const api = {
             alert ('Erro ao excluir o pensamento')
             throw error
         }
-    }   
+    },   
+
+    async atualizarFavorito(id, favorito) {
+        try {
+            const response = await axios.patch(`${URL_BASE}/pensamentos/${id}`, { favorito })
+            return response.data
+        } catch (error) {
+            alert("Não foi possível atualizar favorito")
+            throw error
+        }
+    }
 }
 
 // Permite que o objeto seja acessado por outros arquivos

@@ -305,18 +305,14 @@ h3 {
 }
 
 .botao-editar,
-.botao-excluir {
+.botao-excluir,
+.botao-favoritar {
   background: none;
   border: none;
   cursor: pointer;
   padding: 8px;
   margin-left: 8px;
-}
-
-.botao-editar img,
-.botao-excluir img {
-  width: 20px;
-  height: 20px;
+  cursor: pointer;
 }
 
 span {

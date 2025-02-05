@@ -25,7 +25,7 @@ const ui = {
 
             if (pensamentosParaRenderizar.length === 0) {
                 mensagemVazia.style.display = "block"
-            } else {
+            }else {
                 mensagemVazia.style.display = "none"
                 pensamentosParaRenderizar.forEach(ui.cadastrarPensamentosNaLista)
             } 
@@ -54,6 +54,24 @@ const ui = {
         const divAutoria = document.createElement("div")
         divAutoria.classList.add("pensamento-autoria")
         divAutoria.textContent = pensamento.autoria    
+
+        const botaoFavoritar = document.createElement("button")
+        botaoFavoritar.classList.add("botao-favoritar")
+        botaoFavoritar.onclick = async () => {
+            try {
+                await api.atualizarFavorito(pensamento.id, !pensamento.favorito)
+                ui.renderizarPensamentos
+            } catch (error) {
+                
+            }
+        }
+
+        const iconeFavoritar = document.createElement("img")
+        iconeFavoritar.src = pensamento.favorito ? 
+            "assets/imagens/icone-favorito.png": 
+            "assets/imagens/icone-favoritar.png" 
+        iconeFavoritar.alt = "favoritar"
+        botaoFavoritar.appendChild(iconeFavoritar)
 
         const botaoEditar = document.createElement("button")
         botaoEditar.classList.add("botao-editar")
@@ -84,6 +102,7 @@ const ui = {
 
         const icones = document.createElement("div")
         icones.classList.add("icones")
+        icones.appendChild(botaoFavoritar)
         icones.appendChild(botaoEditar)
         icones.appendChild(botaoExcluir)
 
