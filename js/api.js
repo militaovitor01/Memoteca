@@ -20,7 +20,7 @@ const api = {
         }
     },
 
-    async buscarPensamentosPorTermo(termo) {
+    async buscarPensamentosPorTermo(termo) {        
         try {
             const pensamentos = await this.buscarPensamentos()
             const termoEmMinusculas = termo.toLowerCase() // O pensamento digitado pela pessoa sempre estará em minúsculas

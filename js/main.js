@@ -9,6 +9,7 @@ const botaoExcluirTodos = document.getElementById("botao-excluir-todos")
 const inputBusca = document.getElementById("campo-busca")
 
 document.addEventListener("DOMContentLoaded", () => {
+    
     ui.renderizarPensamentos()    
     formularioPensamento.addEventListener("submit", manipularSubmissaoFormulario)
     inputBusca.addEventListener("input", manipularBusca)
