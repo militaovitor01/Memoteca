@@ -33,12 +33,17 @@ async function manipularSubmissaoFormulario(event) {
     const id = document.getElementById("pensamento-id").value
     const conteudo = document.getElementById("pensamento-conteudo").value
     const autoria = document.getElementById("pensamento-autoria").value
+    const data = document.getElementById("pensamento-data").value
+
+    if(!validarData(data)) {
+        alert("Data não é válida! Digite um valor válido")
+    }
 
     try {
         if(id) {
-            await api.editarPensamentos({id, conteudo, autoria})
+            await api.editarPensamentos({id, conteudo, autoria, data})
         }else {
-            await api.cadastrarPensamentos({conteudo, autoria})
+            await api.cadastrarPensamentos({conteudo, autoria, data})
         }
 
         ui.renderizarPensamentos()
@@ -55,4 +60,11 @@ async function manipularBusca(){
     } catch (error) {
         alert("Erro ao realizar busca")
     }
+}
+
+function validarData(data) {
+    const dataAtual = new Date()
+    const dataInserida = new Date(data)
+    
+    return dataInserida  <= dataAtual    
 }

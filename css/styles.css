@@ -156,7 +156,8 @@ h3 {
 }
 
 #pensamento-conteudo,
-#pensamento-autoria {
+#pensamento-autoria,
+#pensamento-data {
   padding: 16px;
   border-radius: 8px;
   background: var(--Cinza-claro, #EDF0F4);
@@ -275,7 +276,8 @@ h3 {
 }
 
 .pensamento-conteudo,
-.pensamento-autoria {
+.pensamento-autoria,
+.pensamento-data {
   margin-left: 20px;
   color: var(--Cinza, #444);
   font-family: "Roboto Mono";
@@ -296,6 +298,12 @@ h3 {
 .pensamento-autoria {
   font-size: 22px;
   font-weight: 600;
+}
+
+.pensamento-data {
+  font-size: 18px;
+  font-weight: 400;
+  text-align: end;
 }
 
 .icones {
